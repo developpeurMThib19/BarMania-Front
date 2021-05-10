@@ -16,20 +16,9 @@ export default class Inscription extends React.Component {
                 <TextInput style={styles.textinput} placeholder="Pseudo"
                 underlineColorAndroid={'transparent'}/>
 
-                <TextInput style={styles.textinput} placeholder="Nom"
-                underlineColorAndroid={'transparent'}/>
-
-                <TextInput style={styles.textinput} placeholder="Prenom"
-                underlineColorAndroid={'transparent'}/>
-
-                <TextInput style={styles.textinput} placeholder="Email"
-                underlineColorAndroid={'transparent'}/>
-
                 <TextInput style={styles.textinput} placeholder="Mot de passe"
                 secureTextEntry={true} underlineColorAndroid={'transparent'}/>
 
-                <TextInput style={styles.textinput} placeholder="Confirmer mot de passe"
-                secureTextEntry={true} underlineColorAndroid={'transparent'}/>
 
                 <TouchableOpacity style={styles.button}>
                     <Text style={styles.btntext}>Inscription</Text>
