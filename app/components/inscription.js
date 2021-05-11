@@ -11,7 +11,7 @@ export default class Inscription extends React.Component {
     render(){
         return(
             <View style={styles.inscription}>
-                <Text style={styles.header}>LOGO</Text>
+                <Text style={styles.body}>LOGO</Text>
 
                 <TextInput style={styles.textinput} placeholder="Pseudo"
                 underlineColorAndroid={'transparent'}/>
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     inscription: {
         alignSelf: 'stretch',
     },
-    header: {
+    body: {
         fontSize: 24,
         color: '#fff',
         paddingBottom: 10,
