@@ -7,7 +7,7 @@ import {
     TouchableOpacity,
 } from 'react-native';
 
-export default class motdePasseOublier extends React.Component {
+export default class MotdePasseOublier extends React.Component {
     render(){
         return(
             <View style={styles.motdePasseOublier}>

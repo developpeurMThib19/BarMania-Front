@@ -6,7 +6,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Connexion from './app/components/connexion';
 import Inscription from './app/components/inscription';
 import Links from './app/components/links';
-import motdePasseOublier from './app/components/motdePasseOublier';
+import MotdePasseOublier from './app/components/motdePasseOublier';
 import linking from "./linking";
 
 import HomeScreen from "./app/components/HomeScreen";
@@ -20,7 +20,7 @@ function MyStack(){
   return(
     <Stack.Navigator>
      
-      <Stack.Screen name="Mot de passe oublier" component={motdePasseOublier} />
+      <Stack.Screen name="connexion" component={Connexion} />
 
      
     </Stack.Navigator>
@@ -28,13 +28,17 @@ function MyStack(){
 }
 
 
-export default function App() {
-    return (
-    <NavigationContainer linking={linking}>
-      <MyStack />
-    </NavigationContainer>
-    );
+export default class App extends React.Component {
+    render(){
+      return (
+        <View style={styles.container}>
+      <NavigationContainer linking={linking}>
+        <MotdePasseOublier />
+      </NavigationContainer>
+      </View>
+      );
   }
+}
 
 
 const styles = StyleSheet.create({

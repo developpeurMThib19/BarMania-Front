@@ -7,11 +7,11 @@ import {
     TouchableOpacity,
 } from 'react-native';
 
-export default class Inscription extends React.Component {
+export default class Connexion extends React.Component {
     render(){
         return(
-            <View style={styles.inscription}>
-                <Text style={styles.body}>LOGO</Text>
+            <View style={styles.connexion}>
+                <Text style={styles.header}>LOGO</Text>
 
                 <TextInput style={styles.textinput} placeholder="Pseudo"
                 underlineColorAndroid={'transparent'}/>
@@ -29,10 +29,10 @@ export default class Inscription extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    inscription: {
+    connexion: {
         alignSelf: 'stretch',
     },
-    body: {
+    header: {
         fontSize: 24,
         color: '#fff',
         paddingBottom: 10,
