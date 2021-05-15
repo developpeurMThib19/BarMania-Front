@@ -5,58 +5,83 @@ import {
     View,
     TextInput,
     TouchableOpacity,
+    Image
 } from 'react-native';
 
-export default class Connexion extends React.Component {
+class Connexion extends React.Component {
     render(){
         return(
             <View style={styles.connexion}>
-                <Text style={styles.header}>LOGO</Text>
+                <Image style={styles.logo} source={require('../../images/logo.png')} />
 
-                <TextInput style={styles.textinput} placeholder="Pseudo"
+                <TextInput style={styles.textInput} placeholder="Pseudo"
                 underlineColorAndroid={'transparent'}/>
 
-                <TextInput style={styles.textinput} placeholder="Mot de passe"
+                <TextInput style={styles.textInput} placeholder="Mot de passe"
                 secureTextEntry={true} underlineColorAndroid={'transparent'}/>
 
+                <Text style={styles.forgetPassword}>Mot de passe oublié ?</Text>
 
                 <TouchableOpacity style={styles.button}>
-                    <Text style={styles.btntext}>CONNEXION</Text>
+                    <Text style={styles.btnText}>CONNEXION</Text>
                 </TouchableOpacity>
+
+                <Text style={styles.textConnect} onPress={() =>
+                    this.props.navigation.navigate('Inscription')
+                }>Inscrivez-vous</Text> 
             </View>
         );
     }
 }
 
+export default Connexion
+
 const styles = StyleSheet.create({
     connexion: {
-        alignSelf: 'stretch',
+        backgroundColor: '#73B479'
     },
-    header: {
-        fontSize: 24,
-        color: '#fff',
-        paddingBottom: 10,
-        marginBottom: 40,
-        borderBottomColor: '#199187',
-        borderBottomWidth: 1,
+    logo: {
+        width: 250,
+        height: 140,
+        margin: 'auto',
+        marginBottom: 30
     },
-    textinput: {
-        alignSelf: 'stretch',
+    textInput: {
+        backgroundColor: '#73B479',
         height: 40,
-        marginBottom: 30,
+        width: '70%',
+        marginBottom: 40,
         color: '#fff',
-        borderBottomColor: '#f8f8f8',
-        borderBottomWidth: 1,
+        borderBottomColor: 'white',
+        borderBottomWidth: 2,
+        placeholderTextColor: 'white',
+        margin: 'auto'
+    },
+    forgetPassword: {
+        textDecorationLine: 'underline',
+        marginLeft: '50%',
+        color: 'white'
     },
     button: {
-        alignSelf: 'stretch',
-        alignItems: 'center',
-        padding: 20,
-        backgroundColor: '#59cbbd',
-        marginTop: 30,
+        textAlign: 'center',
+        backgroundColor: 'white',
+        marginTop: 120,
+        width: 150,
+        height: 50,
+        margin: 'auto',
+        padding: 15,
+        borderRadius: 40
     }, 
-    btntext: {
-        color: '#fff',
-        fondWeignt: 'bold',
+    btnText: {
+        color: 'black',
+        fontWeight: 'bold'
+    },
+    textConnect: {
+        fontSize: 17,
+        marginTop: 100,
+        color: 'white',
+        textAlign: 'center',
+        textDecorationLine: 'underline',
+        paddingBottom: 30
     }
 });

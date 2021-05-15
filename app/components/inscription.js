@@ -1,73 +1,113 @@
 import React from 'react';
 import {
-    StyleSheet,
     Text,
     View,
     TextInput,
     TouchableOpacity,
-} from 'react-native';
+    Image,
+    StyleSheet
+} from 'react-native'
+import md5 from 'md5'
 
-export default class Inscription extends React.Component {
+class Inscription extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+          pseudo: '',
+          nom: '',
+          prenom: '',
+          email: '',
+          mdp: '',
+          cmdp: ''
+        }
+    }
+
+    
+
     render(){
+
+        function sendData() {
+            alert('test')
+        }
+
+        console.log(this.state.mdp)
         return(
             <View style={styles.inscription}>
-                <Text style={styles.header}>LOGO</Text>
+                <Image style={styles.logo} source={require('../../images/logo.png')} />
 
-                <TextInput style={styles.textinput} placeholder="Pseudo"
+                <TextInput onChangeText={text => this.setState({ pseudo: text})} style={styles.textInput} placeholder="Pseudo"
                 underlineColorAndroid={'transparent'}/>
 
-                <TextInput style={styles.textinput} placeholder="Nom"
+                <TextInput onChangeText={text => this.setState({ nom: text})} style={styles.textInput} placeholder="Nom"
                 underlineColorAndroid={'transparent'}/>
 
-                <TextInput style={styles.textinput} placeholder="Prenom"
+                <TextInput onChangeText={text => this.setState({ prenom: text})} style={styles.textInput} placeholder="Prenom"
                 underlineColorAndroid={'transparent'}/>
 
-                <TextInput style={styles.textinput} placeholder="Email"
+                <TextInput onChangeText={text => this.setState({ email: text})} style={styles.textInput} placeholder="Email"
                 underlineColorAndroid={'transparent'}/>
 
-                <TextInput style={styles.textinput} placeholder="Mot de passe"
+                <TextInput onChangeText={text => this.setState({ mdp: md5(text)})} style={styles.textInput} placeholder="Mot de passe"
                 secureTextEntry={true} underlineColorAndroid={'transparent'}/>
 
-                <TextInput style={styles.textinput} placeholder="Confirmer mot de passe"
+                <TextInput onChangeText={text => this.setState({ cmdp: md5(text)})} style={styles.textInput} placeholder="Confirmer mot de passe"
                 secureTextEntry={true} underlineColorAndroid={'transparent'}/>
 
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.btntext}>Inscription</Text>
+                <TouchableOpacity onPress={sendData} style={styles.button}>
+                    <Text style={styles.btnText}>INSCRIPTION</Text>
                 </TouchableOpacity>
+
+                <Text style={styles.textConnect} onPress={() =>
+                    this.props.navigation.navigate('Connexion')
+                }>Connectez-vous</Text> 
             </View>
         );
     }
 }
 
+export default Inscription
+
+
 const styles = StyleSheet.create({
     inscription: {
-        alignSelf: 'stretch',
+        backgroundColor: '#73B479'
     },
-    header: {
-        fontSize: 24,
-        color: '#fff',
-        paddingBottom: 10,
-        marginBottom: 40,
-        borderBottomColor: '#199187',
-        borderBottomWidth: 1,
+    logo: {
+        width: 250,
+        height: 140,
+        margin: 'auto'
     },
-    textinput: {
-        alignSelf: 'stretch',
+    textInput: {
+        backgroundColor: '#73B479',
         height: 40,
-        marginBottom: 30,
+        width: '70%',
+        marginBottom: 20,
         color: '#fff',
-        borderBottomColor: '#f8f8f8',
-        borderBottomWidth: 1,
+        borderBottomColor: 'white',
+        borderBottomWidth: 2,
+        placeholderTextColor: 'white',
+        margin: 'auto'
     },
     button: {
-        alignSelf: 'stretch',
-        alignItems: 'center',
-        padding: 20,
-        backgroundColor: '#59cbbd',
+        textAlign: 'center',
+        backgroundColor: 'white',
         marginTop: 30,
+        width: 150,
+        height: 50,
+        margin: 'auto',
+        padding: 15,
+        borderRadius: 40
     }, 
-    btntext: {
-        color: '#fff',
-        fondWeignt: 'bold',
+    btnText: {
+        color: 'black',
+        fontWeight: 'bold'
+    },
+    textConnect: {
+        fontSize: 17,
+        marginTop: 40,
+        color: 'white',
+        textAlign: 'center',
+        textDecorationLine: 'underline',
+        paddingBottom: 30
     }
-});
+})

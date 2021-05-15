@@ -1,44 +1,49 @@
 import React from 'react';
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import Connexion from './app/components/connexion';
-import Inscription from './app/components/inscription';
-import Links from './app/components/links';
+import Connexion from './app/components/Connexion';
+import Inscription from './app/components/Inscription';
 import MotdePasseOublier from './app/components/motdePasseOublier';
-import linking from "./linking";
 
-import HomeScreen from "./app/components/HomeScreen";
-import LinkingButtonScreen from "./app/components/LinkingButtonScreen";
-import NotificationsScreen from "./app/components/NotificationsScreen";
-
-const Stack = createStackNavigator();
+const Stack = createStackNavigator()
 
 
-function MyStack(){
-  return(
-    <Stack.Navigator>
-     
-      <Stack.Screen name="connexion" component={Connexion} />
-
-     
-    </Stack.Navigator>
-  );
-}
-
-
-export default class App extends React.Component {
-    render(){
-      return (
-        <View style={styles.container}>
-      <NavigationContainer linking={linking}>
-        <MotdePasseOublier />
+class App extends React.Component {
+  render(){
+    return (
+      <NavigationContainer>
+        <Stack.Navigator
+          screenOptions={{
+            headerShown: false
+          }}
+        >
+          <Stack.Screen
+              name="Inscription"
+              component={Inscription}
+          />
+          <Stack.Screen
+              name="Connexion"
+              component={Connexion}
+          />
+        </Stack.Navigator>
       </NavigationContainer>
-      </View>
-      );
-  }
+    )
 }
+}
+
+export default App
+
+// function MyStack(){
+//   return(
+//     <Stack.Navigator>
+     
+//       <Stack.Screen name="connexion" component={Connexion} />
+
+     
+//     </Stack.Navigator>
+//   );
+// }
 
 
 const styles = StyleSheet.create({
